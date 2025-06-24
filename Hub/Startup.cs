@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RealtimedataToGraphics.Hubs;
+using System;
 
 namespace RealtimedataToGraphics
 {
@@ -52,10 +53,9 @@ namespace RealtimedataToGraphics
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseCors("CorsPolicy");
-            app.UseSignalR(routes =>
-            {
-                routes.MapHub<SpeedHub>("/speedhub");
-            });
-        }
+            app.UseEndpoints(endpoints => { endpoints.MapHub<SpeedHub>("/speedhub"); });
+
+
+    }
     }
 }
