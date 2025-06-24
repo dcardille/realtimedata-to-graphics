@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataSender", "DataSender\DataSender.csproj", "{D3E68A73-6BA8-B2A7-5C72-F1EF62EE06D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataHub", "Hub\DataHub.csproj", "{B1A44A9D-8944-60D1-DDB8-473539029F7D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataHub", "DataHub\DataHub.csproj", "{B1A44A9D-8944-60D1-DDB8-473539029F7D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlRoom.Desktop", "ControlRoom.Desktop\ControlRoom.Desktop.csproj", "{33901C77-785C-79DD-88A7-03893421C633}"
 EndProject
