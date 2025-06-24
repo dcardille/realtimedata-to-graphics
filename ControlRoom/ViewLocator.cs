@@ -1,35 +1,30 @@
-// Copyright (c) The Avalonia Project. All rights reserved.
-// Licensed under the MIT license. See licence.md file in the project root for full license information.
-
 using System;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
 using ControlRoom.ViewModels;
 
-namespace ControlRoom
+namespace ControlRoom;
+
+public class ViewLocator : IDataTemplate
 {
-    public class ViewLocator : IDataTemplate
+    public Control? Build(object? param)
     {
-        public bool SupportsRecycling => false;
+        if (param is null)
+            return null;
 
-        public Control Build(object data)
+        var name = param.GetType().FullName!.Replace("ViewModel", "View", StringComparison.Ordinal);
+        var type = Type.GetType(name);
+
+        if (type != null)
         {
-            var name = data.GetType().FullName.Replace("ViewModel", "View");
-            var type = Type.GetType(name);
-
-            if (type != null)
-            {
-                return (Control)Activator.CreateInstance(type);
-            }
-            else
-            {
-                return new TextBlock { Text = "Not Found: " + name };
-            }
+            return (Control)Activator.CreateInstance(type)!;
         }
 
-        public bool Match(object data)
-        {
-            return data is ViewModelBase;
-        }
+        return new TextBlock { Text = "Not Found: " + name };
+    }
+
+    public bool Match(object? data)
+    {
+        return data is ViewModelBase;
     }
 }

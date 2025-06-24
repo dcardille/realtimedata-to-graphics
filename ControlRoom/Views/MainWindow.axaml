@@ -1,0 +1,13 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:ControlRoom.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:ControlRoom.Views"
+        mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="250"
+										 Width="450" Height="250"
+        x:Class="ControlRoom.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="ControlRoom">
+        <views:MainView />
+</Window>

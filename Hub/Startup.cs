@@ -9,7 +9,7 @@ using System;
 namespace RealtimedataToGraphics
 {
   
-    public class Startup
+public class Startup
     {
         public Startup(IConfiguration configuration)
         {
@@ -36,26 +36,18 @@ namespace RealtimedataToGraphics
             services.AddSignalR();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env) // Updated IHostingEnvironment to IWebHostEnvironment
         {
-            if (env.IsDevelopment())
-            {
 
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Error");
-                app.UseHsts();
-            }
+            app.UseExceptionHandler("/Error");
+            app.UseHsts();
 
             //app.UseHttpsRedirection();
+            app.UseRouting();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-            app.UseCors("CorsPolicy");
+            // app.UseCors("CorsPolicy");
             app.UseEndpoints(endpoints => { endpoints.MapHub<SpeedHub>("/speedhub"); });
-
-
-    }
+        }
     }
 }
